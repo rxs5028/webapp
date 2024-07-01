@@ -70,6 +70,15 @@ def search():
 
     return('Your best flight is $' + str(total_cost) + ' from ' + to_date + '('+ airport + ') on ' + to_airline + ' to ' + from_date + '(' + 'AUA' + ') on ' + from_airline + '!')
 
+@app.route("/echo")
+def echo():
+    return '''
+    <form action="/echo_user_input" method="POST">
+         <input name="user_input">
+         <input type="submit" value="Submit!">
+    </form>
+    '''
+
 @app.route("/echo_user_input", methods=["POST"])
 def echo_input():
     input_text = request.form.get("user_input", "")
